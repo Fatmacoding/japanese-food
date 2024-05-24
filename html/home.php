@@ -1,3 +1,6 @@
+<?php
+  include 'dbconnection.php '; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,13 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--=============== FAVICON ===============-->
-        <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon" />
 
     <!--=============== TITTLE ===============-->
         <title>SakuraBite</title>
 
     <!--=============== STYLE ===============-->
-        <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="../style/style.css">
 
     <!--=============== AOS ===============-->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -42,16 +45,16 @@
           <a href="#about-us">About Us</a>
         </li>
         <li>
-          <img src="assets/search.svg" alt="search" />
+          <img src="../assets/search.svg" alt="search" />
         </li>
         <li class="close">
-          <img src="assets/close.png" alt="close" />
+          <img src="../assets/close.png" alt="close" />
         </li>
       </ul>
         <!--=============== MENU-MOBILE ===============-->
         <ul class="header__menu-mobile" id="menu" data-aos="fade-down">
           <li>
-            <img src="assets/menu.svg" alt="menu" />
+            <img src="../assets/menu.svg" alt="menu" />
           </li>
         </ul>
       </nav>
@@ -59,7 +62,7 @@
         <!--=============== HOME ===============-->
       <section class="hero" id="home">
         <div class="hero-image">
-          <img src="assets/sushi-1.png" alt="sushi" data-aos="fade-right"/>
+          <img src="../assets/sushi-1.png" alt="sushi" data-aos="fade-right"/>
           <h2 data-aos="fade-right">
             日 <br />
             本 <br />
@@ -76,7 +79,7 @@
             <div class="hero-content__btns">
               <button class="hero-content__order-btn">Order Now</button>
               <button class="hero-content__play-btn">
-                <img src="assets/play-circle.svg" alt="play" />
+                <img src="../assets/play-circle.svg" alt="play" />
                 How to Order
               </button>
             </div>
@@ -89,7 +92,7 @@
             </div>
   
             <div class="hero-contnet__review">
-              <img src="assets/user.png" alt="user" />
+              <img src="../assets/user.png" alt="user" />
               <p>
                 "This is the best Japanese food delivery service that ever
                 existed."
@@ -104,16 +107,16 @@
     <section class="about-us" id="about-us">
       <div class="about-us__img">
         <div class="about-us__img-sushi3">
-          <img src="assets/sushi-3.png" alt="sushi"  data-aos="fade-right"/>
+          <img src="../assets/sushi-3.png" alt="sushi"  data-aos="fade-right"/>
         </div>
 
         <button class="about-us__btn" data-aos="fade-left">
           Learn More
-          <img src="assets/arrow-up-right.svg" alt="learn more" />
+          <img src="../assets/arrow-up-right.svg" alt="learn more" />
         </button>
 
         <div class="about-us__img-sushi2">
-          <img src="assets/sushi-2.png" alt="sushi" data-aos="fade-right"/>
+          <img src="../assets/sushi-2.png" alt="sushi" data-aos="fade-right"/>
         </div>
       </div>
 
@@ -136,85 +139,66 @@
       <div class="popular-foods__filters sushi__hide-scrollbar"  data-aos="fade-up">
         <button class="popular-foods__filter-btn active">All</button>
         <button class="popular-foods__filter-btn">
-          <img src="assets/sushi-9.png" alt="sushi 9" />
+          <img src="../assets/sushi-9.png" alt="sushi 9" />
           Sushi
-        </button>
+        </button>       
         <button class="popular-foods__filter-btn">
-          <img src="assets/sushi-8.png" alt="sushi 8" />
+          <img src="../assets/sushi-8.png" alt="sushi 8" />
           Ramen
         </button>
         <button class="popular-foods__filter-btn">
-          <img src="assets/sushi-7.png" alt="sushi 7" />
+          <img src="../assets/sushi-7.png" alt="sushi 7" />
           Udon
         </button>
         <button class="popular-foods__filter-btn">
-          <img src="assets/sushi-6.png" alt="sushi 6" />
+          <img src="../assets/sushi-6.png" alt="sushi 6" />
           Danggo
         </button>
         <button class="popular-foods__filter-btn">Other</button>
       </div>
 
       <div class="popular-foods__catalogue"  data-aos="fade-up">
-        <article class="popular-foods__card">
-          <img
-            class="popular-foods__card-img"
-            src="assets/sushi-12.png"
-            alt="sushi 12"
-          />
-          <h4 class="popular-foods__card-title">hezu Sushi</h4>
-          <div class="popular-foods__card-details flex-between">
-            <div class="popular-foods__card-rating">
-              <img src="assets/star.svg" alt="" />
-              <p>4.9</p>
-            </div>
+      <?php 
+            $query = 'SELECT * FROM popularfood';
+            $STATMENT = $connection->prepare($query);
+            $STATMENT->execute();
+            $result = $STATMENT->fetchAll(PDO::FETCH_ASSOC);
+            $arr = [0,1,2];
+            if($result){
+              foreach($arr as $i){  
+                ?>
+                  <article class="popular-foods__card">
+                      <img
+                          class="popular-foods__card-img"
+                          src="../assets/<?= $result[$i]['img'];?>"
+                          alt="sushi 12"
+                      />
+                      <h4 class="popular-foods__card-title"><?= $result[$i]['information'];?></h4>
+                      <div class="popular-foods__card-details flex-between">
+                          <div class="popular-foods__card-rating">
+                          <img src="../assets/star.svg" alt="" />
+                          <p><?=$result[$i]['star'];?></p>
+                          </div>
 
-            <p class="popular-foods__card-price">
-                $21.00
-            </p>
-          </div>
-        </article>
-        <article class="popular-foods__card active-card">
-          <img
-            class="popular-foods__card-img"
-            src="assets/sushi-11.png"
-            alt="sushi 11"
-          />
-          <h4 class="popular-foods__card-title">riginal Sushi</h4>
-          <div class="popular-foods__card-details flex-between">
-            <div class="popular-foods__card-rating">
-              <img src="assets/star.svg" alt="" />
-              <p>5.0</p>
-            </div>
-
-            <p class="popular-foods__card-price">
-                $19.00
-            </p>
-          </div>
-        </article>
-        <article class="popular-foods__card">
-          <img
-            class="popular-foods__card-img"
-            src="assets/sushi-10.png"
-            alt="sushi 10"
-          />
-          <h4 class="popular-foods__card-title">Ramen Legendo</h4>
-          <div class="popular-foods__card-details flex-between">
-            <div class="popular-foods__card-rating">
-              <img src="assets/star.svg" alt="" />
-              <p>4.7</p>
-            </div>
-
-            <p class="popular-foods__card-price">
-                $13.00
-            </p>
-          </div>
+                          <p class="popular-foods__card-price">
+                          <?= $result[$i]['price'];?>$
+                          </p>
+                      </div>
+                  </article>
+                <?php  
+              }
+            }       
+        ?>
         </article>
       </div>
-
-      <button class="popular-foods__btn">
-        Explore Food
-        <img src="assets/arrow-right.svg" alt="arrow-right" />
-      </button>
+      <div class="div_explore_food">
+        <a href="exploreFood.php" class="a__explore" >    
+          <div class="popular-foods__btn">
+              Explore Food
+              <img src="../assets/arrow-right.svg" alt="arrow-right" />
+          </div>                                                
+        </a>
+      </div>
     </section>
     <!--=============== TRENDING-SUSHI ===============-->
       <section class="trending" id="food">
@@ -227,37 +211,37 @@
             <ul class="trending__list flex-between">
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Make Sushi</p>
               </li>
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Oshizushi</p>
               </li>
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Uramaki Sushi</p>
               </li>
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Nigiri Sushi</p>
               </li>
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Temaki Sush</p>
               </li>
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Inari Sushi</p>
               </li>
@@ -265,12 +249,12 @@
           </div>
     
           <div class="trending__img flex-center">
-            <img src="assets/sushi-5.png" alt="sushi 5" data-aos="fade-left">
+            <img src="../assets/sushi-5.png" alt="sushi 5" data-aos="fade-left">
             <div class="trending__arrow trending__arrow-left">
-              <img src="assets/arrow-vertical.svg" alt="arrow vertical">
+              <img src="../assets/arrow-vertical.svg" alt="arrow vertical">
             </div>
             <div class="trending__arrow trending__arrow-bottom">
-              <img src="assets/arrow-horizontal.svg" alt="arrow horizontal">
+              <img src="../assets/arrow-horizontal.svg" alt="arrow horizontal">
             </div>
           </div>
         </section>
@@ -284,12 +268,12 @@
       <!--=============== TRENDING-DRINKS ===============-->
         <section class="trending-drinks">
           <div class="trending__img flex-center">
-            <img src="assets/sushi-4.png" alt="sushi 4" data-aos="fade-right">
+            <img src="../assets/sushi-4.png" alt="sushi 4" data-aos="fade-right">
             <div class="trending__arrow trending__arrow-top">
-              <img src="assets/arrow-horizontal.svg" alt="arrow horizontal">
+              <img src="../assets/arrow-horizontal.svg" alt="arrow horizontal">
             </div>
             <div class="trending__arrow trending__arrow-right">
-              <img src="assets/arrow-vertical.svg" alt="arrow vertical">
+              <img src="../assets/arrow-vertical.svg" alt="arrow vertical">
             </div>
           </div>
   
@@ -301,37 +285,37 @@
             <ul class="trending__list flex-between">
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Oruncha</p>
               </li>
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Sakura Tea</p>
               </li>
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Aojiru</p>
               </li>
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Ofukucha</p>
               </li>
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Kombu-cha</p>
               </li>
               <li>
                 <div class="trending__icon flex-center">
-                  <img src="assets/check.svg" alt="check">
+                  <img src="../assets/check.svg" alt="check">
                 </div>
                 <p class="p-trending">Mugicha</p>
               </li>
@@ -369,19 +353,19 @@
   
           <ul class="footer__social">
             <li class="flex-center">
-              <img src="assets/facebook.svg" alt="facebook">
+              <img src="../assets/facebook.svg" alt="facebook">
             </li>
             <li class="flex-center">
-              <img src="assets/instagram.svg" alt="instagram">
+              <img src="../assets/instagram.svg" alt="instagram">
             </li>
             <li class="flex-center">
-              <img src="assets/twitter.svg" alt="twitter">
+              <img src="../assets/twitter.svg" alt="twitter">
             </li>
           </ul>
       </footer>
 
       <!--=============== MAIN JS ===============-->
-        <script src="javascript/main.js"></script>
+        <script src="../javascript/main.js"></script>
     <!--=============== AOS JS ===============-->
       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
       <script>
