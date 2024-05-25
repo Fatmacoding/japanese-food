@@ -1,6 +1,6 @@
 <?php
-    include ('dbconnection.php')
-?>
+    include ('dbconnection.php');
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

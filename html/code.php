@@ -1,7 +1,6 @@
 <?php
 session_start();
 include ('dbconnection.php');
-echo "gffhjghjg";
 if (isset($_POST['save-card-btn'])){
     // $Image = $_POST['Image'];
     $Information = $_POST['Information'];
@@ -17,6 +16,7 @@ if (isset($_POST['save-card-btn'])){
         ':Star' => $Star ,
         ':Price' => $Price 
     ];
+    
     $sql_execute = $sql_run->execute($data);
 
     if($sql_execute){

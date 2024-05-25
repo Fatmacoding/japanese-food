@@ -75,10 +75,10 @@
 .div_explore_food{
     display: flex;
     align-items: center;
-    justify-self: center;
+    justify-content: center;
 }
 
- .popular-foods__btn {
+.popular-foods__btn {
     width: fit-content;
     padding: 20px 30px;
     /* margin: 80px auto 0; */

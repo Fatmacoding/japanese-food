@@ -192,12 +192,15 @@
         </article>
       </div>
       <div class="div_explore_food">
-        <a href="exploreFood.php" class="a__explore" >    
-          <div class="popular-foods__btn">
-              Explore Food
-              <img src="../assets/arrow-right.svg" alt="arrow-right" />
-          </div>                                                
-        </a>
+        <div>
+          <a href="exploreFood.php" class="a__explore" >    
+            <button class="popular-foods__btn">
+                Explore Food
+                <img src="../assets/arrow-right.svg" alt="arrow-right" />
+            </button>                                                
+          </a>
+        </div>
+        
       </div>
     </section>
     <!--=============== TRENDING-SUSHI ===============-->
