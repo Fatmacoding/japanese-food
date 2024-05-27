@@ -72,16 +72,10 @@
     flex-wrap: wrap;
     gap: 56px;
 }
-.div_explore_food{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .popular-foods__btn {
     width: fit-content;
     padding: 20px 30px;
-    /* margin: 80px auto 0; */
+    margin: 80px auto 0;
     font-weight: 500;
     font-size: 18px;
     line-height: 23px;
@@ -98,7 +92,11 @@
 .popular-foods__btn:hover{
     transform: scale(1.08);
 }
-
+.Aexplore{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .popular-foods__btn img {
     width: 14px;
     height: 14px;

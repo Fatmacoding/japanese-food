@@ -1,6 +1,6 @@
 <?php
     include ('dbconnection.php');
-    ?>
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +44,7 @@
         .popular-foods__title{
             margin-bottom: 40px;
         }
-        #popular-foods__filter-btn{
+        #popular-foods__filter-btn-delete{
             background-color:var(--primary-color);
             padding: 10px 28px;
             display: flex;
@@ -60,6 +60,28 @@
             color: var(--color-creamson);
             cursor: pointer;
         }
+        #popular-foods__filter-btn-update{
+            background-color:var(--primary-color);
+            padding: 10px 28px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, .05);
+            border-radius: 46px;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 25px;
+            font-family: var(--plus-jakarta-sans);
+            color: var(--color-creamson);
+            cursor: pointer;
+        }
+        .td{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
     </style>
 </head>
 <body>
@@ -94,37 +116,42 @@
                 </div>
             </div>
             <div class="body__card">
-                <table class="table table-bordered">
-                    <thead>
-                        <th>Image</th>
-                        <th>Information</th>
-                        <th>Star</th>
-                        <th>Price</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody>
-                        <?php  
-                            $query = "SELECT * FROM popularfood ";
-                            $statment = $connection->prepare($query);
-                            $statment->execute();
-                            $result =  $statment->FetchAll(PDO::FETCH_ASSOC);
-                            if($result){
-                                foreach($result as $row){
-                        ?>
-                            <tr>
-                                <td><?= $row['img']?></td>
-                                <td><?= $row['information']?></td>
-                                <td><?= $row['star']?></td>
-                                <td><?= $row['price']?></td>
-                                <td><a href="delet-card.php"><button id="popular-foods__filter-btn">DELET</button></a></td>
+                    <table class="table table-bordered">
+                        <thead>
+                            <th>Image</th>
+                            <th>Information</th>
+                            <th>Star</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                            <?php  
+                                $query = "SELECT * FROM popularfood ORDER BY price asc ";
+                                $statment = $connection->prepare($query);
+                                $statment->execute();
+                                $result =  $statment->FetchAll(PDO::FETCH_ASSOC);
+                                if($result){
+                                    foreach($result as $row){
+                            ?>
+                                <tr>
+                                    <td><?= $row['img']?></td>
+                                    <td><?= $row['information']?></td>
+                                    <td><?= $row['star']?></td>
+                                    <td><?= $row['price']?></td> 
+                                    <td class="td">                                        
+                                        <a href="update-card.php?id=<?= $row['id'];?>"><button type="submit" id="popular-foods__filter-btn-update">UPDATE</button></a>
+                                        <form action="delet-card.php" method="post">
+                                            <a href="delet-card.php"><button type="submit" id="popular-foods__filter-btn-delete">DELET</button></a>
+                                        </form>
+                                    </td>
 
-                            </tr>
-                        <?php  
+                                </tr>
+                            <?php  
+                                    }
                                 }
-                            }
-                        ?>
-                    </tbody>
-                </table>
+                            ?>
+                        </tbody>
+                    </table>
             </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

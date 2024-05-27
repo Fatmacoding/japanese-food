@@ -19,4 +19,5 @@ cards.forEach((card) => {
     })
     card.classList.add('active-card')
   })
+  
 })
