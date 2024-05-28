@@ -64,8 +64,23 @@ if(isset($_POST['update-card-btn'])){
     }      
 }
 if(isset($_POST['btn-delete'])){
-    
-
+    $id = $_POST["btn-delete"];
+    $sql = "DELETE FROM popularfood WHERE id=:id";
+    $stm = $connection->prepare($sql);
+    $data = [
+        ":id" => $id 
+    ];
+    $stm_exec = $stm->execute($data);
+    if($stm_exec){
+        $_SESSION['message'] = 'Deleted successfully.';
+        header('Location:Admin.php');
+        exit(0);
+    }
+    else{
+        $_SESSION['message'] = 'Error Deleted record';
+        header('Location:Admin.php');
+        exit(0);
+    }
 }
 
 ?>

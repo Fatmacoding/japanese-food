@@ -118,7 +118,7 @@
             </div>
             <div class="body__card">
                     <?php if(isset($_SESSION['message'])) : ?>
-                            <h5 class="alert alert-light"><?= $_SESSION['message']; ?></h5>
+                            <h5 class="alert alert-danger"><?= $_SESSION['message']; ?></h5>
                     <?php 
                         unset($_SESSION['message']);
                         endif; 
@@ -148,7 +148,7 @@
                                     <td class="td">                                        
                                         <a href="update-card.php?id=<?= $row['id'];?>"><button type="submit" id="popular-foods__filter-btn-update">UPDATE</button></a>
                                         <form action="code.php" method="post">
-                                            <button type="submit" id="popular-foods__filter-btn-delete" name="btn-delete">DELET</button>
+                                            <button type="submit" id="popular-foods__filter-btn-delete" value="<?= $row['id']; ?>" name="btn-delete">DELET</button>
                                         </form>
                                     </td>
 
