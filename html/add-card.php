@@ -24,9 +24,7 @@
     <div class="div-All">
         <div class="container mt-4">
             <div class="row">
-            <div class="col-3 mt-4"></div>
-                <?php if(isset()) : ?>
-                   
+            <div class="col-3 mt-4"></div>                   
                 <div class="col-6 mt-4">
                 <?php if(isset($_SESSION['message'])) : ?>
                     <h5 class="alert alert-success"><?= $_SESSION['message']; ?></h5>

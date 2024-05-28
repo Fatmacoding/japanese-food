@@ -159,7 +159,7 @@
 
       <div class="popular-foods__catalogue"  data-aos="fade-up">
       <?php 
-            $query = 'SELECT * FROM popularfood ORDER BY star DESC';
+            $query = 'SELECT * FROM popularfood ORDER BY star DESC ';
             $STATMENT = $connection->prepare($query);
             $STATMENT->execute();
             $result = $STATMENT->fetchAll(PDO::FETCH_ASSOC);

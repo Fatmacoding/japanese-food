@@ -1,5 +1,6 @@
 <?php
     include ('dbconnection.php');
+    session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,6 +117,12 @@
                 </div>
             </div>
             <div class="body__card">
+                    <?php if(isset($_SESSION['message'])) : ?>
+                            <h5 class="alert alert-light"><?= $_SESSION['message']; ?></h5>
+                    <?php 
+                        unset($_SESSION['message']);
+                        endif; 
+                    ?>
                     <table class="table table-bordered">
                         <thead>
                             <th>Image</th>
@@ -126,7 +133,7 @@
                         </thead>
                         <tbody>
                             <?php  
-                                $query = "SELECT * FROM popularfood ORDER BY price asc ";
+                                $query = " SELECT * FROM popularfood ORDER BY price asc ";
                                 $statment = $connection->prepare($query);
                                 $statment->execute();
                                 $result =  $statment->FetchAll(PDO::FETCH_ASSOC);
@@ -140,8 +147,8 @@
                                     <td><?= $row['price']?></td> 
                                     <td class="td">                                        
                                         <a href="update-card.php?id=<?= $row['id'];?>"><button type="submit" id="popular-foods__filter-btn-update">UPDATE</button></a>
-                                        <form action="delet-card.php" method="post">
-                                            <a href="delet-card.php"><button type="submit" id="popular-foods__filter-btn-delete">DELET</button></a>
+                                        <form action="code.php" method="post">
+                                            <button type="submit" id="popular-foods__filter-btn-delete" name="btn-delete">DELET</button>
                                         </form>
                                     </td>
 

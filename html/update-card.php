@@ -37,15 +37,9 @@ session_start();
                         ':id' => $id 
                     ];
                     $stm->execute($data);
-                    $result = $stm->fetch(PDO::FETCH_OBJ);
-                }  
-                ?>
-                <?php if(isset($_SESSION['message'])) : ?>
-                    <h5 class="alert alert-success"><?= $_SESSION['message']; ?></h5>
-                <?php 
-                    unset($_SESSION['message']);
-                    endif; 
-                ?>
+                    $result = $stm->fetch(PDO::FETCH_OBJ); 
+                    }
+                ?> 
                     <div class="card">
                         <div class="card-header">
                             <h3>
