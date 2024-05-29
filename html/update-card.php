@@ -52,7 +52,7 @@ session_start();
                                 <input type="hidden" name="id-input" value="<?= $result->id;?>">
                                 <div class="mb-4">
                                     <label>Image :</label>
-                                    <input type="file" class="form-control" name="Image"/>
+                                    <input type="file" class="form-control" name="Image" value="<?= $result->img;?>"/>
                                 </div>
                                 <div class="mb-4">
                                     <label>Information :</label>

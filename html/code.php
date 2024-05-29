@@ -2,7 +2,7 @@
 session_start();
 include ('dbconnection.php');
 if (isset($_POST['save-card-btn']) ){
-    // $Image = $_FILES['Image'];
+    $ImageData = file_get_contents($_FILES['Image']['tmp_name']);
     $Information = $_POST['Information'];
     $Star = $_POST['Star'];
     $Price = $_POST['Price'];
@@ -11,7 +11,7 @@ if (isset($_POST['save-card-btn']) ){
     $sql_run = $connection->prepare($sql);
 
     $data = [
-        ':img' => 'Picture1.png' ,
+        ':img' => $ImageData,
         ':Information' => $Information ,
         ':Star' => $Star ,
         ':Price' => $Price 
@@ -32,16 +32,21 @@ if (isset($_POST['save-card-btn']) ){
 }
 
 if(isset($_POST['update-card-btn'])){
-    // $Image = $_FILES['Image'];
+    $ImageName = $_FILES['Image']['name'];
+    $tmp_name = $_FILES['Image']['tmp_name'];
+    $size = $_FILES['Image']['size'];
+    $error = $_FILES['Image']['error'];
+
     $Information = $_POST['Information'];
     $Star = $_POST['Star'];
     $Price = $_POST['Price'];
     $id = $_POST['id-input'];
+    echo $ImageData ;
     try{
         $sql = "UPDATE popularfood SET img=:img,information=:information,star=:star,price=:price WHERE id=:id LIMIT 1" ; 
         $sql_run = $connection->prepare($sql);
         $data = [
-            ':img' => 'Picture6.png',
+            ':img' => $ImageData,
             ':information' => $Information,
             ':star' => $Star,
             ':price' => $Price,
