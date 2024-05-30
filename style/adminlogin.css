@@ -49,7 +49,7 @@ input{
     width: 100%;
     background-color: transparent;
     border: none;
-    border-bottom: 1px solid #3e5bba;
+    border-bottom: 1px solid var(--primary2-color);
     padding-left: 1.9rem; 
     font-size: 15px;
 }
@@ -59,12 +59,12 @@ input{
 }
 .inputGroup i{
     position: absolute;
-    color:rgb(25, 34, 131);
+    color:var(--primary-color);
 }
 input:focus{
     background-color: transparent;
     outline: transparent;
-    border-bottom: 2px solid #2442a3 ;
+    border-bottom: 2px solid var(--primary2-color) ;
 }
 input::placeholder{
     color: transparent;
@@ -79,7 +79,7 @@ label{
 }
 input:focus~label,input:not(:placeholder-shown)~label{
     top:-3em ;
-    color: #2442a3;
+    color: var(--primary2-color);
     font-size: 15px;
 }
 .recover {
