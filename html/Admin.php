@@ -35,12 +35,18 @@
             background-color : var(--color-creamson);
             border : 2px solid var(--primary-color);
             color : var(--black-300);
+            text-align:center;
         }
         .table td{
             background-color : var(--color-white);
-            border : 2px solid var(--primary-color);
             color: #702d30;
             font-size:larger;
+        }
+        tr{
+            border : 4px solid var(--primary-color);
+        }
+        .td1{
+            border : 2px solid var(--primary-color);
         }
         .popular-foods__title{
             margin-bottom: 40px;
@@ -48,6 +54,8 @@
         #popular-foods__filter-btn-delete{
             background-color:var(--primary-color);
             padding: 10px 28px;
+            margin-left: 20px;
+            margin-right: -78px;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -64,6 +72,7 @@
         #popular-foods__filter-btn-update{
             background-color:var(--primary-color);
             padding: 10px 28px;
+            margin-left: -62px;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -81,13 +90,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border : 5px solid var(--primary-color);
+
         }
 
     </style>
 </head>
 <body>
         <section class="popular-foods">
+                    <?php if(isset($_SESSION['message'])) : ?>
+                            <h5 class="alert alert-light"><?= $_SESSION['message']; ?></h5>
+                    <?php 
+                        unset($_SESSION['message']);
+                        endif; 
+                    ?>
             <div id="div-head">
+                <h5 class="alert alert-warning w-50">Welcome fatma massou to your Account.</h5>
                 <h3 class="popular-foods__title">Your Food / 人気</h3>
                 <div class="div_links">
                     <a href="home#home" class="add_card_link">
@@ -141,10 +159,10 @@
                                     foreach($result as $row){
                             ?>
                                 <tr>
-                                    <td><?= $row['img']?></td>
-                                    <td><?= $row['information']?></td>
-                                    <td><?= $row['star']?></td>
-                                    <td><?= $row['price']?></td> 
+                                    <td class="td1"><?= $row['img']?></td>
+                                    <td class="td1"><?= $row['information']?></td>
+                                    <td class="td1"><?= $row['star']?></td>
+                                    <td class="td1"><?= $row['price']?></td> 
                                     <td class="td">                                        
                                         <a href="update-card.php?id=<?= $row['id'];?>"><button type="submit" id="popular-foods__filter-btn-update">UPDATE</button></a>
                                         <form action="code.php" method="post">
