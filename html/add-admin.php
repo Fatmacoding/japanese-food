@@ -1,6 +1,8 @@
 <?php
     include ("dbconnection.php");
+    session_start();
     if(isset($_POST["signUp"])){
+
         $fName = $_POST["fName"];
         $lName = $_POST["lName"];
         $email = $_POST["email"];
@@ -10,19 +12,19 @@
         $stm = $connection->prepare($sql);
         $data = [
             ':firstName' =>$fName, 
-            ':firstName' =>$lName, 
-            ':firstName' =>$email, 
-            ':firstName' =>$password 
+            ':lastName' =>$lName, 
+            ':email' =>$email, 
+            ':passw' =>$password 
         ];
-        $stm_exect = $stm->execute($data);
+        $stm_execute = $stm->execute($data);
         if($stm_execute){
-            $_SESSION['message'] = '';
-            header('Location:Admin.php');
-            exit(0);
+            $_SESSION['message'] = 'Your account create Successfully.';
+            header('Location:Admin-Login.php');
+            exit(0); 
         }
         else{
             $_SESSION['message'] = 'Error';
-            header('Location:Admin.php');
+            header('Location:Admin-Login.php');
             exit(0);
         }
     }

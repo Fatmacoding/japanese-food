@@ -19,9 +19,9 @@
 </head>
 <body>
      <!-- SIGN UP -->
-     <div class="container" id="signUp">
-        <h1 class="form-title">Register</h1>
-        <form action="register.php" method="post">
+    <div class="container" id="signUp">
+     <h1 class="form-title">Register</h1>
+        <form action="add-admin.php" method="post">
             <div class="inputGroup">
                 <i class="fa-solid fa-user"></i>
                 <input type="text" id="fName" name="fName" placeholder="hh" required>
@@ -57,9 +57,16 @@
         </div>
     </div>
     <!-- SIGN IN -->
+    
     <div class="container" id="signIn">
-        <h1 class="form-title">Sign In</h1>
-        <form action="register.php" method="post">
+    <?php if(isset($_SESSION['message'])) : ?>
+            <h5 class="alert alert-dark"><?= $_SESSION['message']; ?></h5>
+    <?php 
+        unset($_SESSION['message']);
+        endif; 
+    ?>
+    <h1 class="form-title">Sign In</h1>
+        <form action="add-admin.php" method="post">
               
             <div class="inputGroup">
                 <i class="fa-solid fa-envelope"></i>

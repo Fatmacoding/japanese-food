@@ -24,6 +24,7 @@
 body{
     background-color: var(--color-creamson);
     background: linear-gradient(to right,  var(--primary-color), var(--color-creamson),var(--color-creamson), var(--primary-color));
+    user-select: none;
 }
 .container{
     background: #fff;
@@ -43,6 +44,7 @@ form{
     text-align: center;
     padding: 1.3rem;
     margin-bottom: 0.6rem;
+    text-decoration: underline;
 }
 input{
     color: inherit;
@@ -52,6 +54,7 @@ input{
     border-bottom: 1px solid var(--primary2-color);
     padding-left: 1.9rem; 
     font-size: 15px;
+    margin-top: 20px;
 }
 .inputGroup{
     padding: 2% 0;
@@ -59,6 +62,7 @@ input{
 }
 .inputGroup i{
     position: absolute;
+    margin-top: 17px;
     color:var(--primary-color);
 }
 input:focus{

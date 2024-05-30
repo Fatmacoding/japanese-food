@@ -98,14 +98,13 @@
 </head>
 <body>
         <section class="popular-foods">
-                    <?php if(isset($_SESSION['message'])) : ?>
-                            <h5 class="alert alert-light"><?= $_SESSION['message']; ?></h5>
-                    <?php 
-                        unset($_SESSION['message']);
-                        endif; 
-                    ?>
             <div id="div-head">
-                <h5 class="alert alert-warning w-50">Welcome fatma massou to your Account.</h5>
+                <?php if(isset($_SESSION['message'])) : ?>
+                        <h5 class="alert alert-light"><?= $_SESSION['message']; ?></h5>
+                <?php 
+                    unset($_SESSION['message']);
+                    endif; 
+                ?>
                 <h3 class="popular-foods__title">Your Food / 人気</h3>
                 <div class="div_links">
                     <a href="home#home" class="add_card_link">
