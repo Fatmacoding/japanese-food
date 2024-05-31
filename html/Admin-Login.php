@@ -7,6 +7,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <!--=============== FAVICON ===============-->
         <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon" />
         <!--=============== TITTLE ===============-->
@@ -58,13 +60,13 @@
     </div>
     <!-- SIGN IN -->
     
-    <div class="container" id="signIn">
     <?php if(isset($_SESSION['message'])) : ?>
-            <h5 class="alert alert-dark"><?= $_SESSION['message']; ?></h5>
+        <h1 class="alert alert-success"></h1><?= $_SESSION['message']; ?>
     <?php 
         unset($_SESSION['message']);
         endif; 
     ?>
+    <div class="container" id="signIn">
     <h1 class="form-title">Sign In</h1>
         <form action="add-admin.php" method="post">
               

@@ -134,12 +134,6 @@
                 </div>
             </div>
             <div class="body__card">
-                    <?php if(isset($_SESSION['message'])) : ?>
-                            <h5 class="alert alert-danger"><?= $_SESSION['message']; ?></h5>
-                    <?php 
-                        unset($_SESSION['message']);
-                        endif; 
-                    ?>
                     <table class="table table-bordered">
                         <thead>
                             <th>Image</th>
