@@ -46,7 +46,7 @@
     }
     if(isset($_POST["signIn"])){
         if(empty($_POST["email"]) || empty($_POST["password"])){
-            $message = "<label>All field is required</label>";
+            $_SESSION['message'] = "All field is required";
         }
         else{
             $sql = "SELECT * FROM admin WHERE email = :email AND password = :passwor";
@@ -62,7 +62,8 @@
                 header('Location:Admin.php');
             }
             else{
-                $message = '<label>Email or Password is wrong</label>';
+                $_SESSION['message'] = 'Email or Password is wrong';
+                header('Location:Admin-Login.php');
             }
         }
     }

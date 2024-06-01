@@ -99,10 +99,10 @@
 <body>
         <section class="popular-foods">
             <div id="div-head">
-                <?php if(isset($_SESSION['message'])) : ?>
-                        <h5 class="alert alert-light"><?= $_SESSION['message']; ?></h5>
+                <?php if(isset($_SESSION['email'])) : ?>
+                        <h5 class="alert alert-light w-50">Welcome <?= $_SESSION['email'];?> :)</h5>
                 <?php 
-                    unset($_SESSION['message']);
+                    unset($_SESSION['email']);
                     endif; 
                 ?>
                 <h3 class="popular-foods__title">Your Food / 人気</h3>
