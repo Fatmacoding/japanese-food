@@ -1,6 +1,7 @@
 <?php
     include ("dbconnection.php");
     session_start();
+    $message = '';
     if(isset($_POST["signUp"])){
 
         $fName = $_POST["fName"];
@@ -44,37 +45,25 @@
         
     }
     if(isset($_POST["signIn"])){
-
-        $email = $_POST["email"];
-        $password = $_POST["password"];
-
-        $sql = "SELECT * FROM admin WHERE email=:email and password=:passwor";
-        $stm = $connection->prepare($sql);
-        $data = [
-            ":email" => $email,
-            ":passwor" => $password
-        ];
-        $result = $stm->execute($data);
-        
-        if($result->num_rows >0){
-            $result = $stm->FetchAll(PDO::FETCH_ASSOC);
-            $_SESSION['email']=$row['email'];
-            header("Location: Admin.php");
-            exit();
+        if(empty($_POST["email"]) || empty($_POST["password"])){
+            $message = "<label>All field is required</label>";
         }
         else{
-         'Not found, Incorrect email or Password';
-
-        }
-        if($result['email'] == $email && $result['password'] == $password ){
-            $_SESSION['message'] = 'Welcom '.$result['firstName'].' ' .$result['lasttName'] .":)";
-            header('Location:Admin.php');
-            exit(0); 
-        }
-        else{
-            $_SESSION['message'] = 'Error. Check your Email or Password !!';
-            header('Location:Admin-Login.php');
-            exit(0);
+            $sql = "SELECT * FROM admin WHERE email = :email AND password = :passwor";
+            $stm = $connection->prepare($sql);
+            $data = [
+                ":email" =>  $_POST["email"],
+                ":passwor" => $_POST["password"]
+            ];
+            $stm->execute($data);
+            $count = $stm->rowCount();
+            if ($count > 0) {
+                $_SESSION['email'] =  $_POST["email"] ;
+                header('Location:Admin.php');
+            }
+            else{
+                $message = '<label>Email or Password is wrong</label>';
+            }
         }
     }
     
