@@ -105,6 +105,7 @@
                     unset($_SESSION['email']);
                     endif; 
                 ?>
+                <a href="logout.php"><button type="button" class="btn btn-outline-warning float-end">Logout</button></a>
                 <h3 class="popular-foods__title">Your Food / 人気</h3>
                 <div class="div_links">
                     <a href="home#home" class="add_card_link">
