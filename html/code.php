@@ -2,11 +2,21 @@
 session_start();
 include ('dbconnection.php');
 if (isset($_POST['save-card-btn']) ){
-    $ImageData = file_get_contents($_FILES['Image']['tmp_name']);
     $Information = $_POST['Information'];
     $Star = $_POST['Star'];
     $Price = $_POST['Price'];
-    if ($Star && $Price)
+    $Image = $_FILES['Image']['name'];
+    $tmp_dir = $_FILES['Image']['tmp_name'];
+    $ImageSize = $_FILES['Image']['size'];
+    $upload_dir = "assets";
+    $imgExt = strtolower(pathinfo($Image,PATHINFO_EXTENSION)); 
+    $valid_extensions = array('jpeg','jpg','png','gif','pdf');
+    $picProfile = rand(1000,1000000) . '.' . $imgExt ;
+    move_uploaded_file($tmp_dir , $upload_dir.$picProfile); 
+   
+   
+    
+
     $sql = "INSERT INTO popularfood(img ,information,star,price) value (:img ,:Information,:Star,:Price)"; 
     $sql_run = $connection->prepare($sql);
 
