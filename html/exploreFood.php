@@ -82,7 +82,7 @@
                         <article class="popular-foods__card">
                             <img
                                 class="popular-foods__card-img"
-                                src="../assets/<?= $row['img'];?>"
+                                src="<?= $row['img'];?>"
                                 alt="sushi 12"
                             />
                             <h4 class="popular-foods__card-title"><?= $row['information'];?></h4>
