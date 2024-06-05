@@ -55,7 +55,7 @@
             background-color:var(--primary-color);
             padding: 10px 28px;
             margin-left: 20px;
-            margin-right: -78px;
+            margin-right: -45px;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -72,7 +72,7 @@
         #popular-foods__filter-btn-update{
             background-color:var(--primary-color);
             padding: 10px 28px;
-            margin-left: -62px;
+            margin-left:-12px;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -103,6 +103,12 @@
                         <h5 class="alert alert-light w-50">Welcome <?= $_SESSION['email'];?> :)</h5>
                 <?php 
                     unset($_SESSION['email']);
+                    endif; 
+                ?>
+                <?php if(isset($_SESSION['message'])) : ?>
+                    <script type='text/javascript'>alert('<?= $_SESSION['message']; ?>')</script>
+                <?php 
+                    unset($_SESSION['message']);
                     endif; 
                 ?>
                 <a href="logout.php"><button type="button" class="btn btn-outline-warning float-end">Logout</button></a>

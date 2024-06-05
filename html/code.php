@@ -11,14 +11,15 @@ if (isset($_POST['save-card-btn']) ){
     $upload_dir = "../assets/";
     $imgExt = strtolower(pathinfo($Image,PATHINFO_EXTENSION)); 
     $valid_extensions = array('jpeg','jpg','png','gif','pdf');
-    $picProfile = $upload_dir .rand(1000,1000000) . "." . $imgExt;
+    $picName = rand(1000,1000000) . "." . $imgExt;
+    $picProfile = $upload_dir . $picName;
     move_uploaded_file($tmp_dir,$picProfile); 
 
     $sql = "INSERT INTO popularfood(img ,information,star,price) value (:img ,:Information,:Star,:Price)"; 
     $sql_run = $connection->prepare($sql);
 
     $data = [
-        ':img' => $picProfile,
+        ':img' => $picName,
         ':Information' => $Information ,
         ':Star' => $Star ,
         ':Price' => $Price 
@@ -39,10 +40,15 @@ if (isset($_POST['save-card-btn']) ){
 }
 
 if(isset($_POST['update-card-btn'])){
-    $ImageName = $_FILES['Image']['name'];
-    $tmp_name = $_FILES['Image']['tmp_name'];
-    $size = $_FILES['Image']['size'];
-    $error = $_FILES['Image']['error'];
+    $Image = $_FILES['Image']['name'];
+    $tmp_dir = $_FILES['Image']['tmp_name'];
+    $ImageSize = $_FILES['Image']['size'];
+    $upload_dir = "../assets/";
+    $imgExt = strtolower(pathinfo($Image,PATHINFO_EXTENSION)); 
+    $valid_extensions = array('jpeg','jpg','png','gif','pdf');
+    $picName = rand(1000,1000000) . "." . $imgExt;
+    $picProfile = $upload_dir . $picName;
+    move_uploaded_file($tmp_dir,$picProfile);
 
     $Information = $_POST['Information'];
     $Star = $_POST['Star'];
@@ -53,7 +59,7 @@ if(isset($_POST['update-card-btn'])){
         $sql = "UPDATE popularfood SET img=:img,information=:information,star=:star,price=:price WHERE id=:id LIMIT 1" ; 
         $sql_run = $connection->prepare($sql);
         $data = [
-            ':img' => $ImageData,
+            ':img' => $picName,
             ':information' => $Information,
             ':star' => $Star,
             ':price' => $Price,
