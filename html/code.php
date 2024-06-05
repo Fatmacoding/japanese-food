@@ -8,11 +8,11 @@ if (isset($_POST['save-card-btn']) ){
     $Image = $_FILES['Image']['name'];
     $tmp_dir = $_FILES['Image']['tmp_name'];
     $ImageSize = $_FILES['Image']['size'];
-    $upload_dir = "sakuraBite/assets";
+    $upload_dir = "assets/";
     $imgExt = strtolower(pathinfo($Image,PATHINFO_EXTENSION)); 
     $valid_extensions = array('jpeg','jpg','png','gif','pdf');
     $picProfile = rand(1000,1000000) . "." . $imgExt ;
-    move_uploaded_file($tmp_dir ,$picProfile); 
+    move_uploaded_file($tmp_dir,$upload_dir.$picProfile); 
 
     $sql = "INSERT INTO popularfood(img ,information,star,price) value (:img ,:Information,:Star,:Price)"; 
     $sql_run = $connection->prepare($sql);
@@ -48,7 +48,7 @@ if(isset($_POST['update-card-btn'])){
     $Star = $_POST['Star'];
     $Price = $_POST['Price'];
     $id = $_POST['id-input'];
-    echo $ImageData ;
+    
     try{
         $sql = "UPDATE popularfood SET img=:img,information=:information,star=:star,price=:price WHERE id=:id LIMIT 1" ; 
         $sql_run = $connection->prepare($sql);
