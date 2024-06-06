@@ -4,7 +4,6 @@
     if(!isset($_SESSION['email'])){
         header('Location:Admin-Login.php');
     };
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,7 +109,7 @@
                 <?php if(isset($_SESSION['email'])) : ?>
                         <h5 class="alert alert-light w-50">Welcome <?= $_SESSION['email'];?> :)</h5>
                 <?php 
-                    unset($_SESSION['email']);
+                    // unset($_SESSION['email']);
                     endif; 
                 ?>
                 <?php if(isset($_SESSION['message'])) : ?>

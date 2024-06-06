@@ -1,9 +1,9 @@
 <?php
     include ("dbconnection.php");
     session_start(); 
-    if(!isset($_SESSION['email'])){
-        header('Location:Admin-Login.php');
-};
+//     if(!isset($_SESSION['email'])){
+//         header('Location:Admin-Login.php');
+// };
 ?>
 
 <!DOCTYPE html>
