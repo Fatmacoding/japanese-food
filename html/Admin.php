@@ -1,6 +1,10 @@
 <?php
     include ('dbconnection.php');
     session_start(); 
+    if(!isset($_SESSION['email'])){
+        header('Location:Admin-Login.php');
+    };
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,8 +58,8 @@
         #popular-foods__filter-btn-delete{
             background-color:var(--primary-color);
             padding: 10px 28px;
-            margin-left: 20px;
-            margin-right: -45px;
+            /* margin-left: 20px; */
+            /* margin-right: -45px; */
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -72,7 +76,7 @@
         #popular-foods__filter-btn-update{
             background-color:var(--primary-color);
             padding: 10px 28px;
-            margin-left:-12px;
+            /* margin-left:-12px; */
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -85,15 +89,19 @@
             font-family: var(--plus-jakarta-sans);
             color: var(--color-creamson);
             cursor: pointer;
+            
         }
-        .td{
+
+        /* .td{
             display: flex;
             align-items: center;
             justify-content: center;
             border : 5px solid var(--primary-color);
 
+        } */
+        .a{
+            display: inline-block;
         }
-
     </style>
 </head>
 <body>
@@ -159,13 +167,15 @@
                                     foreach($result as $row){
                             ?>
                                 <tr>
-                                    <td class="td1"><?= $row['img']?></td>
+                                    <td class="td1"><img class="popular-foods__card-img"
+                                                        src="../assets/<?= $row['img']?>"
+                                                        alt="sushi 12"/></td>
                                     <td class="td1"><?= $row['information']?></td>
                                     <td class="td1"><?= $row['star']?></td>
                                     <td class="td1"><?= $row['price']?></td> 
                                     <td class="td">                                        
-                                        <a href="update-card.php?id=<?= $row['id'];?>"><button type="submit" id="popular-foods__filter-btn-update">UPDATE</button></a>
-                                        <form action="code.php" method="post">
+                                        <a href="update-card.php?id=<?= $row['id'];?>" class="a"><button type="submit" id="popular-foods__filter-btn-update">UPDATE</button></a>
+                                        <form action="code.php" method="post" style="display: inline-block;">
                                             <button type="submit" id="popular-foods__filter-btn-delete" value="<?= $row['id']; ?>" name="btn-delete">DELET</button>
                                         </form>
                                     </td>
