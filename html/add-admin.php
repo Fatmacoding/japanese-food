@@ -63,7 +63,7 @@
             }
             else{
                 $_SESSION['message'] = 'Email or Password is wrong';
-                header('Location:Admin-Login.php');
+                
             }
         }
     }
