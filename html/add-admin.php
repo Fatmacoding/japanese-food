@@ -8,6 +8,7 @@
         $lName = $_POST["lName"];
         $email = $_POST["email"];
         $password = $_POST["password"];
+        // $password = md5($password);
         $sqlSelc = "SELECT COUNT(*) FROM admin WHERE email = :email";        
         $stm = $connection->prepare($sqlSelc);
         $data = [
@@ -45,7 +46,9 @@
         
     }
     if(isset($_POST["signIn"])){
-        if(empty($_POST["email"]) || empty($_POST["password"])){
+        $password = $_POST["password"];
+        // $password = md5($password);
+        if(empty($_POST["email"]) || empty($password)){
             $_SESSION['message'] = "All field is required";
         }
         else{
