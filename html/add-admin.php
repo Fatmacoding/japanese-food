@@ -8,8 +8,8 @@
         $lName = $_POST["lName"];
         $email = $_POST["email"];
         $password = $_POST["password"];
-        // $password = md5($password);
-        $sqlSelc = "SELECT COUNT(*) FROM admin WHERE email = :email";        
+        // $hash_password = Password_hash($password,PASSWORD_BCRYPT);
+        $sqlSelc = "SELECT COUNT(*) FROM admin WHERE email = :email " ;        
         $stm = $connection->prepare($sqlSelc);
         $data = [
             ':email' =>$email            
@@ -29,7 +29,7 @@
                 ':firstName' =>$fName, 
                 ':lastName' =>$lName, 
                 ':email' =>$email, 
-                ':passw' =>$password 
+                ':passw' => $password
             ];
             $stm_execute = $stm->execute($data);
             if($stm_execute){
@@ -43,30 +43,31 @@
                 exit(0);
             }
         }
-        
-    }
+    }    
+    
     if(isset($_POST["signIn"])){
-        $password = $_POST["password"];
-        // $password = md5($password);
+        $password = $_POST["password"];;
         if(empty($_POST["email"]) || empty($password)){
             $_SESSION['message'] = "All field is required";
         }
         else{
-            $sql = "SELECT * FROM admin WHERE email = :email AND password = :passwor";
+            $sql = "SELECT * FROM admin WHERE email = :email";
             $stm = $connection->prepare($sql);
             $data = [
                 ":email" =>  $_POST["email"],
-                ":passwor" => $_POST["password"]
             ];
+
             $stm->execute($data);
             $count = $stm->rowCount();
-            if ($count > 0) {
+
+            if ($count > 0) {                
                 $_SESSION['email'] =  $_POST["email"] ;
                 header('Location:Admin.php');
             }
-            else{
-                $_SESSION['message'] = 'Email or Password is wrong';
                 
+            
+            else{
+                $_SESSION['message'] = 'Email is wrong';   
             }
         }
     }

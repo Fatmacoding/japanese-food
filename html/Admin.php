@@ -107,7 +107,7 @@
         <section class="popular-foods">
             <div id="div-head">
                 <?php if(isset($_SESSION['email'])) : ?>
-                        <h5 class="alert alert-light w-50">Welcome <?= $_SESSION['email'];?> :)</h5>
+                        <h5 class="alert alert-light w-25">Welcome <?= $_SESSION['email'];?> </h5>
                 <?php 
                     // unset($_SESSION['email']);
                     endif; 
