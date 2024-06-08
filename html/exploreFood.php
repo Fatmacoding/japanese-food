@@ -71,7 +71,7 @@
 
 <!--=============== POPULAR-FOODS ===============-->
     <section class="popular-foods" id="food">
-        <h2 class="popular-foods__title" data-aos="flip-up">Popular Food / 人気</h2>
+        <h2 class="popular-foods__title" data-aos="flip-up">All Food / すべての食べ物</h2>
         <div class="popular-foods__catalogue"  data-aos="fade-up">
             <?php 
                 $query = 'SELECT * FROM popularfood';
