@@ -46,8 +46,8 @@
     }    
     
     if(isset($_POST["signIn"])){
-        $password = $_POST["password"];;
-        if(empty($_POST["email"]) || empty($password)){
+        
+        if(empty($_POST["email"]) || empty($_POST["password"])){
             $_SESSION['message'] = "All field is required";
         }
         else{
