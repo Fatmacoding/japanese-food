@@ -46,15 +46,16 @@
     }    
     
     if(isset($_POST["signIn"])){
-        
+
         if(empty($_POST["email"]) || empty($_POST["password"])){
             $_SESSION['message'] = "All field is required";
         }
         else{
-            $sql = "SELECT * FROM admin WHERE email = :email";
+            $sql = "SELECT * FROM admin WHERE email = :email AND password = :passwor";
             $stm = $connection->prepare($sql);
             $data = [
                 ":email" =>  $_POST["email"],
+                ":passwor" => $_POST["password"]
             ];
 
             $stm->execute($data);
@@ -64,10 +65,8 @@
                 $_SESSION['email'] =  $_POST["email"] ;
                 header('Location:Admin.php');
             }
-                
-            
             else{
-                $_SESSION['message'] = 'Email is wrong';   
+                $_SESSION['message'] = 'Email Or Password is wrong';   
             }
         }
     }
