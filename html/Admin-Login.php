@@ -15,7 +15,6 @@
         <title>Login Admin</title>
         
         <!--=============== STYLE ===============-->
-        <!-- <link rel="stylesheet" href="../style/adminlogin.css"> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         :root {
@@ -241,12 +240,12 @@
     <h1 class="form-title">Sign In</h1>
         <form action="add-admin.php" method="post">
               
-            <div class="inputGroup">
+            <div class="inputGroupI">
                 <i class="fa-solid fa-envelope"></i>
                 <input type="email" id="email" name="email" placeholder="hh" required>
                 <label for="">Email</label>
             </div>
-            <div class="inputGroup">
+            <div class="inputGroupI">
                 <i class="fas fa-lock"></i>
                 <input type="password" id="password" name="password" placeholder="hh" required>
                 <label for="">Password</label>
