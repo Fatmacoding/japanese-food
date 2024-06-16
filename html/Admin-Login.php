@@ -240,12 +240,12 @@
     <h1 class="form-title">Sign In</h1>
         <form action="add-admin.php" method="post">
               
-            <div class="inputGroupI">
+            <div class="inputGroup">
                 <i class="fa-solid fa-envelope"></i>
                 <input type="email" id="email" name="email" placeholder="hh" required>
                 <label for="">Email</label>
             </div>
-            <div class="inputGroupI">
+            <div class="inputGroup">
                 <i class="fas fa-lock"></i>
                 <input type="password" id="password" name="password" placeholder="hh" required>
                 <label for="">Password</label>
