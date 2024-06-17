@@ -113,6 +113,12 @@
                 <a href="logout.php"><button type="button" class="btn btn-outline-warning float-end">Logout</button></a>
                 <h3 class="popular-foods__title">Your Food / 人気</h3>
                 <div class="div_links">
+                    <a href="add-card.php" class="add_card_link" id="addadmin">
+                        <button class="popular-foods__filter-btn active">
+                        <img src="../assets/Adminprofil.png" alt="sushi 7" />
+                            ADD new Admin
+                        </button>
+                    </a>
                     <a href="home#home" class="add_card_link">
                         <button class="popular-foods__filter-btn">
                         <img src="../assets/homeAdmn.png" alt="sushi 7" />

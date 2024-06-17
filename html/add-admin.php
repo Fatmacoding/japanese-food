@@ -71,5 +71,29 @@
             }
         }
     }
-    
+    if(isset($_POST['signIn-superAdmin'])){
+        if(empty($_POST["email"]) || empty($_POST["password"])){
+            $_SESSION['message'] = "All field is required";
+        }
+        else{
+            $sql = "SELECT * FROM superadmin WHERE email = :email AND password = :passwor";
+            $stm = $connection->prepare($sql);
+            $data = [
+                ":email" =>  $_POST["email"],
+                ":passwor" => $_POST["password"]
+            ];
+
+            $stm->execute($data);
+            $count = $stm->rowCount();
+
+            if ($count > 0) {                
+                $_SESSION['email'] =  $_POST["email"] ;
+                header('Location:superAdmin.php');
+            }
+            else{
+                $_SESSION['message'] = 'Email Or Password is wrong';   
+                header('Location:superAdmin-Login.php');
+            }
+        }  
+    }
 ?>
