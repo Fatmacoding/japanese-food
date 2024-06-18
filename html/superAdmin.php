@@ -110,7 +110,7 @@
                     unset($_SESSION['message']);
                     endif; 
                 ?>
-                <a href="logout.php"><button type="button" class="btn btn-outline-warning float-end">Logout</button></a>
+                <a href="logout.php" name="superAdmin"><button type="button" class="btn btn-outline-warning float-end">Logout</button></a>
                 <h3 class="popular-foods__title">Your Food / 人気</h3>
                 <div class="div_links">
                     <a href="add-card.php" class="add_card_link" id="addadmin">

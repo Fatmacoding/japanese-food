@@ -1,5 +1,10 @@
 <?php
     session_start();
     session_destroy();
-    header("Location:Admin-Login.php");
+    if(isset($_POST['Admin'])){
+        header("Location:Admin-Login.php");
+    };
+    if(isset($_POST['superAdmin'])){
+        header("Location:superAdmin-Login.php");
+    };
 ?>
