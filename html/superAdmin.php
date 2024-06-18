@@ -2,7 +2,7 @@
     include ('dbconnection.php');
     session_start(); 
     if(!isset($_SESSION['email'])){
-        header('Location:Admin-Login.php');
+        header('Location:superAdmin-Login.php');
     };
 ?>
 <!DOCTYPE html>
@@ -113,7 +113,7 @@
                 <a href="logoutsuperAdmin.php"><button type="button" class="btn btn-outline-warning float-end">Logout</button></a>
                 <h3 class="popular-foods__title">Your Food / 人気</h3>
                 <div class="div_links">
-                    <a href="add-card.php" class="add_card_link" id="addadmin">
+                    <a href="add-newAdmin.php" class="add_card_link" id="addadmin">
                         <button class="popular-foods__filter-btn active">
                         <img src="../assets/Adminprofil.png" alt="sushi 7" />
                             ADD new Admin

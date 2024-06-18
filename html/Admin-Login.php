@@ -189,44 +189,44 @@
     </style>
 </head>
 <body>
-     <!-- SIGN UP -->
-    <div class="container" id="signUp">
-     <h1 class="form-title">Register</h1>
-        <form action="add-admin.php" method="post">
-            <div class="inputGroup">
-                <i class="fa-solid fa-user"></i>
-                <input type="text" id="fName" name="fName" placeholder="hh" required>
-                <label for="">First Name</label>
+    <!-- SIGN UP -->
+        <div class="container" id="signUp">
+        <h1 class="form-title">Register</h1>
+            <form action="add-admin.php" method="post">
+                <div class="inputGroup">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="fName" name="fName" placeholder="hh" required>
+                    <label for="">First Name</label>
+                </div>
+                <div class="inputGroup">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="lName" name="lName" placeholder="hh" required>
+                    <label for="">Last Name</label>
+                </div>  
+                <div class="inputGroup">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" name="email" placeholder="hh" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="inputGroup">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="hh" required>
+                    <label for="">Password</label>
+                </div>
+                <input type="submit" class="btn" value="Sign Up" name="signUp">
+            </form>
+            <p class="or">
+                --------------or--------------
+            </p>
+            <div class="icons">
+                <i class="fa-brands fa-google"></i>
+                <i class="fa-brands fa-facebook"></i>
             </div>
-            <div class="inputGroup">
-                <i class="fa-solid fa-user"></i>
-                <input type="text" id="lName" name="lName" placeholder="hh" required>
-                <label for="">Last Name</label>
-            </div>  
-            <div class="inputGroup">
-                <i class="fa-solid fa-envelope"></i>
-                <input type="email" id="email" name="email" placeholder="hh" required>
-                <label for="">Email</label>
+            <div class="links">
+                <p>Already Have Account ?</p>
+                <button id="signInButton">Sign In</button>
             </div>
-            <div class="inputGroup">
-                <i class="fas fa-lock"></i>
-                <input type="password" id="password" name="password" placeholder="hh" required>
-                <label for="">Password</label>
-            </div>
-            <input type="submit" class="btn" value="Sign Up" name="signUp">
-        </form>
-        <p class="or">
-            --------------or--------------
-        </p>
-        <div class="icons">
-            <i class="fa-brands fa-google"></i>
-            <i class="fa-brands fa-facebook"></i>
         </div>
-        <div class="links">
-            <p>Already Have Account ?</p>
-            <button id="signInButton">Sign In</button>
-        </div>
-    </div>
 
     <!-- SIGN IN -->
     
