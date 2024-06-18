@@ -34,12 +34,12 @@
             $stm_execute = $stm->execute($data);
             if($stm_execute){
                 $_SESSION['message'] = 'Your account create Successfully.';
-                header('Location:Admin-Login.php');
+                header('Location:superAdmin.php');
                 exit(0); 
             }
             else{
                 $_SESSION['message'] = 'Error';
-                header('Location:Admin-Login.php');
+                header('Location:add-admin.php');
                 exit(0);
             }
         }
