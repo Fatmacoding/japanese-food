@@ -55,8 +55,8 @@ a{
 }
 .header__menu li {
     position: relative;
-    text-transform: uppercase;
     line-height: 20px;
+    text-transform: uppercase;
 }
   
 .header__menu li a::after {
