@@ -6,8 +6,8 @@ try{
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(PDOException $e){
-    echo "Connected failed " .$e->getMessage();
-    // header('Location:failedConnection.php');
-    // exit(0); 
+    // echo "Connected failed " .$e->getMessage();
+    header('Location:failedConnection.php');
+    exit(0); 
 }
 ?>
