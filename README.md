@@ -3,3 +3,4 @@
 ![sakura3](https://github.com/user-attachments/assets/f562e9fe-ce71-439a-9c50-c447ab206974)
 ![sakura4](https://github.com/user-attachments/assets/d610fed9-6805-46dc-ba68-7b87a884806e)
 ![sakura7](https://github.com/user-attachments/assets/bf4f4837-981d-4c3c-9a78-81ebc3e154cf)
+![sakurabiteError](https://github.com/user-attachments/assets/fb0ac8c0-6149-4d2c-b152-dab02fb141dd)
