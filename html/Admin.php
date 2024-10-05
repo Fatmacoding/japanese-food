@@ -163,7 +163,7 @@
                                                         alt="sushi 12"/></td>
                                     <td class="td1"><?= $row['information']?></td>
                                     <td class="td1"><?= $row['star']?></td>
-                                    <td class="td1"><?= $row['price']?></td> 
+                                    <td class="td1"><?= $row['price']?> $</td> 
                                     <td class="td">                                        
                                         <a href="update-card.php?id=<?= $row['id'];?>" class="a"><button type="submit" id="popular-foods__filter-btn-update">UPDATE</button></a>
                                         <form action="code.php" method="post" style="display: inline-block;">
