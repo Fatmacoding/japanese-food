@@ -167,7 +167,7 @@
                                     <td class="td">                                        
                                         <a href="update-card.php?id=<?= $row['id'];?>" class="a"><button type="submit" id="popular-foods__filter-btn-update">UPDATE</button></a>
                                         <form action="code.php" method="post" style="display: inline-block;">
-                                            <button type="submit" id="popular-foods__filter-btn-delete" value="<?= $row['id']; ?>" name="btn-delete">DELET</button>
+                                            <button type="submit" id="popular-foods__filter-btn-delete" value="<?= $row['id']; ?>" name="btn-delete">DELETE</button>
                                         </form>
                                     </td>
 

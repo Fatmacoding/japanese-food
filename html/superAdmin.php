@@ -99,9 +99,17 @@
         <section class="popular-foods">
             <div id="div-head">
                 <?php if(isset($_SESSION['email'])) : ?>
-                        <h5 class="alert alert-light w-25">Welcome <?= $_SESSION['email'];?> </h5>
+                    <?php   $qsl = "SELECT firstName FROM admin WHERE email = :email";
+                            $stm = $connection->prepare($qsl);
+                            $stm->execute([":email" => $_SESSION['email']]);
+                            $result = $stm->FetchAll(PDO::FETCH_ASSOC);  
+                            foreach($result as $row){
+                    ?>
+                        <h5 class="alert alert-light w-25">Welcome <?=$row['firstName']; ?>
+                        </h5>
                 <?php 
                     // unset($_SESSION['email']);
+                            };
                     endif; 
                 ?>
                 <?php if(isset($_SESSION['message'])) : ?>
@@ -173,7 +181,7 @@
                                     <td class="td">                                        
                                         <a href="update-card.php?id=<?= $row['id'];?>" class="a"><button type="submit" id="popular-foods__filter-btn-update">UPDATE</button></a>
                                         <form action="code.php" method="post" style="display: inline-block;">
-                                            <button type="submit" id="popular-foods__filter-btn-delete" value="<?= $row['id']; ?>" name="btn-delete">DELET</button>
+                                            <button type="submit" id="popular-foods__filter-btn-delete" value="<?= $row['id']; ?>" name="btn-delete">DELETE</button>
                                         </form>
                                     </td>
 
